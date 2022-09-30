@@ -1,4 +1,13 @@
-@import '../utils/variables';
+.card__title {
+    text-align: start;
+    @include card-title;
+    margin-bottom: 4px;
+
+}
+
+.card__text {
+    @include card-text;
+}
 
 .card__list {
     list-style: none;
@@ -7,12 +16,23 @@
     gap: 30px;
 }
 
+// .card__item {
+//     width: 450px;
+// }
+
+.card__img {
+    width: 100%;
+    // height: 294px;
+    // object-fit: cover;
+}
+
 .card__overlay {
     position: relative;
     overflow: hidden;
 }
 
 .card__text--overlay {
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
@@ -20,19 +40,43 @@
     height: 100%;
     background-color: getColor('color-bg-overlay');
     transform: translateY(101%);
-    padding-left: 24px;
-    padding-top: 63px;
-    padding-right: 24px;
-    padding-bottom: 63px;
+    /* width: 100%; */
+    /* text-align: center; */
+
     color: getColor('white-color');
     @include text-overlay;
     transition: transform 250ms $cubic-bezier;
 
+    @media screen and(max-width:480px) {
+        // text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    @media screen and(min-width:480px) {
+        padding-top: 77px;
+        padding-bottom: 77px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    @media screen and(min-width:768px) {
+        padding-top: 49px;
+    }
+
+    @media screen and(min-width:1200px) {
+        padding-top: 63px;
+        padding-bottom: 63px;
+    }
 }
 
 .card__link {
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     &:hover,
     &:focus,
@@ -42,10 +86,12 @@
             1px 4px 6px rgba(0, 0, 0, 0.16);
         overflow: visible;
         transform: translateY(0);
+        /* outline: none; */
     }
 }
 
 .card__border {
+    flex-grow: 1;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 24px;
@@ -53,4 +99,23 @@
     border-left: 1px solid getColor('portfolio-border-color');
     border-right: 1px solid getColor('portfolio-border-color');
     border-bottom: 1px solid getColor('portfolio-border-color');
+}
+
+@media screen and (min-width:768px) {
+    .card__item {
+        width: 354px;
+    }
+}
+
+@media screen and(min-width:1200px) {
+    .card__item {
+        width: 370px;
+    }
+
+    .card__img {
+        //     width: 370px;
+        display: block;
+        height: 294px;
+        // object-fit: cover;
+    }
 }

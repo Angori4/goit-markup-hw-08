@@ -15,6 +15,9 @@ $colors: (
     'color-bg-overlay': rgba(33, 150, 243, 0.9),
     'color-backdrop-modal': rgba(0, 0, 0, 0.2),
     'border-modal-icon': rgba(0, 0, 0, 0.1),
+    'footer-icon-color': rgba(255, 255, 255, 0.1),
+    'footer-form-border': rgba (255, 255, 255, 0.3),
+    // 'footer-placeholder-color': rgba (255, 255, 255, 0.6),
 );
 $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -22,74 +25,113 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
     @return map-get($colors, $key);
 }
 
-@mixin roboto-regular {
-    font-family: 'Roboto', 'sens-serif';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.71;
-    letter-spacing: 0.03em;
+.list {
+    list-style: none;
+    // display: block;
 }
 
-@mixin roboto-bold {
-    font-family: 'Roboto', 'sens-serif';
+.link {
+    text-decoration: none;
+    display: block;
+    // color: currentColor;
+}
+
+
+
+
+
+@mixin logo-font {
+    font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 1.14;
+    font-size: 24px;
+    line-height: 1.17;
     letter-spacing: 0.03em;
+
+    @media screen and(min-width:1200px) {
+        font-size: 26px;
+        line-height: 1.19;
+    }
 }
 
-@mixin roboto-medium {
-    font-family: 'Roboto', 'sens-serif';
-    font-style: normal;
+@mixin nav-text {
     font-weight: 500;
-    font-size: 14px;
-    line-height: 1.14;
+    font-size: 40px;
+    line-height: 1.18;
+    letter-spacing: 0.02em;
+
+    @media screen and(min-width:768px) {
+        font-size: 14px;
+        line-height: 1.14;
+    }
+}
+
+
+@mixin contact-text {
+
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+
+    @media screen and(min-width:768px) {
+        font-size: 12px;
+    }
+
+    @media screen and(min-width:1200px) {
+        font-size: 14px;
+        line-height: 1.14;
+    }
+}
+
+@mixin contact-text--accent {
+    @media screen and(min-width:768px) {
+        @include contact-text;
+    }
+
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.18;
     letter-spacing: 0.02em;
 }
 
-@mixin raleway-bold {
-    font-family: 'Raleway', 'sens-serif';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 1.19;
-    letter-spacing: 0.03em;
+@mixin social-network {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.22;
+    letter-spacing: 0.02em;
 }
 
-@mixin roboto-black {
-    font-family: 'Roboto', 'sens-serif';
-    font-style: normal;
+@mixin hero-title {
     font-weight: 900;
-    font-size: 44px;
-    line-height: 1.36;
+    font-size: 26px;
+    line-height: 1.62;
     text-align: center;
     letter-spacing: 0.06em;
+    text-transform: uppercase;
 
+    @media screen and(min-width:1200px) {
+        font-size: 44px;
+        line-height: 1.36;
+    }
 }
 
 @mixin button {
-    font-family: 'Roboto', 'sens-serif';
-    font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.88;
     letter-spacing: 0.06em;
 }
 
-@mixin title {
-    font-family: 'Roboto', 'sens-serif';
-    font-style: normal;
+@mixin advantage-title {
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.03em;
+    // text-transform: uppercase;
 }
 
 @mixin text {
-    font-family: 'Roboto', 'sens-serif';
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.71;
@@ -97,36 +139,77 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @mixin caption {
-    font-family: 'Roboto', 'sens-serif';
-    font-style: normal;
     font-weight: 700;
-    font-size: 36px;
-    line-height: 1.17;
+    font-size: 28px;
+    line-height: 1.18;
     text-align: center;
+    letter-spacing: 0.03em;
+
+    @media (min-width:768px) {
+        font-size: 36px;
+        line-height: 1.17;
+    }
+
+}
+
+
+@mixin team-title {
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+    letter-spacing: 0.03em;
+    text-align: center;
+
+
+}
+
+@mixin team-text {
+    @media screen and (max-width:767px) {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.19;
+        letter-spacing: 0.03em;
+    }
+}
+
+@mixin adress-link {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.71;
     letter-spacing: 0.03em;
 }
 
-@mixin input {
-    font-family: 'Roboto';
-    font-style: normal;
+@mixin footer-strong {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+@mixin footer-placeholder {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.25;
     letter-spacing: 0.03em;
 }
 
-@mixin form__title {
-    font-family: 'Roboto';
-    font-style: normal;
+@mixin form-title {
     font-weight: 700;
     font-size: 20px;
-    line-height: 1.15;
+    line-height: 1.5;
+    text-align: center;
     letter-spacing: 0.03em;
+
+    @media screen and(min-width:1200px) {
+        line-height: 1.15;
+    }
 }
 
 @mixin label {
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 1.17;
@@ -134,17 +217,29 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @mixin textarea {
-    font-family: 'Roboto';
-    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+
+    @media screen and(min-width:1200px) {
+        line-height: 1.17;
+    }
+}
+
+@mixin checkbox {
     font-weight: 400;
     font-size: 12px;
     line-height: 1.17;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.03em;
+
+    @media screen and(min-width:1200px) {
+        font-size: 14px;
+        line-height: 1.71;
+    }
 }
 
 @mixin portfolio-btn {
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.62;
@@ -152,10 +247,43 @@ $cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @mixin text-overlay {
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
+}
+
+@mixin card-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2.00;
+    letter-spacing: 0.06em;
+    text-transform: none;
+
+}
+
+@mixin card-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.03em;
+}
+
+
+.title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: getColor('title-color');
+    @include advantage-title;
+}
+
+.text {
+    color: getColor('text-color');
+    @include text;
+}
+
+.caption {
+    @include caption;
+    text-align: center;
+    // padding-bottom: 30px;
 }

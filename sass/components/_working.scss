@@ -1,25 +1,21 @@
-@import '../utils/variables';
-
 .working {
-    padding-top: 94px;
-}
+    display: none;
 
-.caption {
-    @include caption;
-    color: getColor('title-color');
-    margin-bottom: 50px;
+    @media screen and(min-width:1200px) {
+        display: block;
+        padding-bottom: 94px;
+        ;
+    }
 }
 
 .working__list {
-    list-style: none;
+    padding-top: 50px;
     display: flex;
     gap: 30px;
 }
 
 .working__position {
     position: relative;
-    display: block;
-
 }
 
 .working__title {
@@ -35,8 +31,4 @@
     height: 70px;
     margin-bottom: 0;
     color: getColor('white-color');
-}
-
-.title {
-    @include title;
 }
